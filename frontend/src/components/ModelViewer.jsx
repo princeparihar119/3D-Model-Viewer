@@ -13,7 +13,9 @@ import * as THREE from "three";
 
 import "../css/ModelViewer.css";
 
-const API_BASE_URL = "http://localhost:8080/api/models";
+const API_URL = import.meta.env.VITE_API_URL;
+
+const API_BASE_URL = `${API_URL}/api/models`;
 const AXIOS_CONFIG = { withCredentials: true };
 
 const SceneContent = ({

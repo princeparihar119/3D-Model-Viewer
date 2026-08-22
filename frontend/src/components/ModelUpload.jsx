@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "../css/ModelUpload.css";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ModelUpload = ({ onUploadSuccess }) => {
   const [file, setFile] = useState(null);
@@ -54,7 +55,7 @@ const ModelUpload = ({ onUploadSuccess }) => {
       formData.append("model", file);
 
       const response = await axios.post(
-        "http://localhost:8080/api/models/upload",
+        `${API_URL}/api/models/upload`,
         formData,
         {
           withCredentials: true,

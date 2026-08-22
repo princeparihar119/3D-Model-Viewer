@@ -10,6 +10,8 @@ import ModelUpload from "./components/ModelUpload";
 import Footer from "./components/Footer";
 import ToastMessage from "./components/ToastMessage";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 import "./css/App.css";
 
 function App() {
@@ -37,7 +39,7 @@ function App() {
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        await axios.get("http://localhost:8080/api/auth/me", {
+        await axios.get(`${API_URL}/api/auth/me`, {
           withCredentials: true,
         });
         setIsLoggedIn(true);
@@ -54,7 +56,7 @@ function App() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:8080/api/auth/logout",
+        `${API_URL}/api/auth/logout`,
         {},
         { withCredentials: true },
       );

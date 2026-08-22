@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/Register.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Register = ({ showToast }) => {
   const navigate = useNavigate();
 
@@ -51,7 +53,7 @@ const Register = ({ showToast }) => {
       setError("");
 
       const response = await axios.post(
-        "http://localhost:8080/api/auth/register",
+        `${API_URL}/api/auth/register`,
         {
           name,
           email,
