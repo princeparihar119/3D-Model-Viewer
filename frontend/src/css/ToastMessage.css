@@ -1,0 +1,31 @@
+.toast-message {
+  position: fixed !important;
+  top: 75px !important;
+  right: 20px !important;
+  min-width: 300px;
+  max-width: 400px;
+  z-index: 99999 !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  animation: toastSlideIn 0.3s ease;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 576px) {
+  .toast-message {
+    top: 65px !important;
+    right: 10px !important;
+    left: 10px !important;
+    min-width: auto;
+    max-width: none;
+  }
+}
